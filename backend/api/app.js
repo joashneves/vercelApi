@@ -4,4 +4,4 @@ const routes = require('./routes');
 const app = express();
 routes(app);
 
-export default app;
+module.exports = app;
