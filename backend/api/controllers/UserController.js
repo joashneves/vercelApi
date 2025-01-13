@@ -2,17 +2,16 @@ const database = require('../models/index.js');
 const controller = require('./Controller.js');
 const UserServices = require('../services/UserServices.js');
 
-const UserServices = new UserServices();
+const userServices = new UserServices();
 
 class UserController extends controller{
     constructor(){
-        super(UserServices);
+        super(userServices);
     }
 
     async listaUsers(req, res){
-        return res.status(200).json({
-            Test: "test"
-        });
+        const listaUsers = await userServices.pegaTodosUsers()
+        return res.status(200).json(listaUsers);
     }
 
 }

@@ -29,4 +29,4 @@ class Constroller {
 
 }
 
-export default Constroller;
+module.exports = Constroller;
