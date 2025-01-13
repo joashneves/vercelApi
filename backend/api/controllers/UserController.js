@@ -4,14 +4,18 @@ const UserServices = require('../services/UserServices.js');
 
 const userServices = new UserServices();
 
-class UserController extends controller{
-    constructor(){
+class UserController extends controller {
+    constructor() {
         super(userServices);
     }
 
-    async listaUsers(req, res){
-        const listaUsers = await userServices.pegaTodosUsers()
-        return res.status(200).json(listaUsers);
+    async listaUsers(req, res) {
+        try {
+            const listaUsers = await userServices.pegaTodosUsers()
+            return res.status(200).json(listaUsers);
+        } catch (erro) {
+            console.error(erro);
+        }
     }
 
 }
